@@ -55,7 +55,6 @@ body {
   margin-top: 6px;
 }
 
-<<<<<<< HEAD
 /* Login */
 .login-panel {
   max-width: 340px;
@@ -201,20 +200,6 @@ body {
   margin: 4px 0 0;
 }
 
-=======
-.data-note {
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  color: var(--muted);
-  text-align: center;
-  margin-bottom: 32px;
-}
-
-.data-note code {
-  color: var(--marquee);
-}
-
->>>>>>> 4ff613d086833c23174acc3de9d09da7621555ec
 /* Section */
 .section-label {
   font-family: var(--mono);
@@ -225,7 +210,6 @@ body {
   margin-bottom: 14px;
 }
 
-<<<<<<< HEAD
 /* Add-artist form */
 .add-form {
   display: flex;
@@ -261,8 +245,6 @@ body {
 
 .add-form button:disabled { opacity: 0.5; cursor: not-allowed; }
 
-=======
->>>>>>> 4ff613d086833c23174acc3de9d09da7621555ec
 /* Ticket stub cards */
 .stub-list {
   display: flex;
@@ -307,7 +289,6 @@ body {
   border-left: 2px dashed rgba(32,29,26,0.3);
 }
 
-<<<<<<< HEAD
 .stub-action {
   width: 64px;
   display: flex;
@@ -329,8 +310,6 @@ body {
 
 .stub-action button:hover { color: var(--alert); }
 
-=======
->>>>>>> 4ff613d086833c23174acc3de9d09da7621555ec
 /* Alert feed */
 .alert-item {
   background: var(--stage-soft);
