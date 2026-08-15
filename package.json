@@ -1,22 +1,35 @@
 {
   "name": "concert-alerts",
   "private": true,
+<<<<<<< HEAD
   "version": "0.2.0",
+=======
+  "version": "0.1.0",
+>>>>>>> 4ff613d086833c23174acc3de9d09da7621555ec
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+<<<<<<< HEAD
     "preview": "vite preview",
     "check-events": "node scripts/check-events.js"
   },
   "dependencies": {
     "firebase": "^10.12.0",
+=======
+    "preview": "vite preview"
+  },
+  "dependencies": {
+>>>>>>> 4ff613d086833c23174acc3de9d09da7621555ec
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.1",
+<<<<<<< HEAD
     "firebase-admin": "^12.1.0",
+=======
+>>>>>>> 4ff613d086833c23174acc3de9d09da7621555ec
     "vite": "^5.3.1"
   }
 }

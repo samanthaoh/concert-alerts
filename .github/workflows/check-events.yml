@@ -2,9 +2,18 @@ name: Check for new concert announcements
 
 on:
   schedule:
+<<<<<<< HEAD
     - cron: '0 16 * * *' # ~9am Pacific — adjust if needed
   workflow_dispatch: {} # lets you trigger it manually from the Actions tab to test
 
+=======
+    - cron: '0 16 * * *' # 9am Pacific (UTC-7 during PDT) — adjust if needed
+  workflow_dispatch: {} # lets you trigger it manually from the Actions tab to test
+
+permissions:
+  contents: write # needed so the workflow can commit seen_events.json updates
+
+>>>>>>> 4ff613d086833c23174acc3de9d09da7621555ec
 jobs:
   check-events:
     runs-on: ubuntu-latest
@@ -17,6 +26,7 @@ jobs:
         with:
           node-version: '20'
 
+<<<<<<< HEAD
       - name: Install dependencies
         run: npm install
 
@@ -27,3 +37,20 @@ jobs:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           ALERT_EMAIL_FROM: ${{ secrets.ALERT_EMAIL_FROM }}
         run: node scripts/check-events.js
+=======
+      - name: Run event check
+        env:
+          TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          ALERT_EMAIL_TO: ${{ secrets.ALERT_EMAIL_TO }}
+          ALERT_EMAIL_FROM: ${{ secrets.ALERT_EMAIL_FROM }}
+        run: node scripts/check-events.js
+
+      - name: Commit any new events
+        run: |
+          git config user.name "concert-alerts-bot"
+          git config user.email "actions@github.com"
+          git add data/seen_events.json
+          git diff --staged --quiet || git commit -m "Add newly found events"
+          git push
+>>>>>>> 4ff613d086833c23174acc3de9d09da7621555ec

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+<<<<<<< HEAD
 import Login from './components/Login'
 import SettingsPanel from './components/SettingsPanel'
 import WatchlistEditor from './components/WatchlistEditor'
@@ -52,10 +53,33 @@ export default function App() {
     )
   }
 
+=======
+import Watchlist from './components/Watchlist'
+import AlertFeed from './components/AlertFeed'
+import { fetchWatchlist, fetchSeenEvents } from './lib/data'
+import './styles.css'
+
+export default function App() {
+  const [artists, setArtists] = useState([])
+  const [foundEvents, setFoundEvents] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function load() {
+      const [watchlist, events] = await Promise.all([fetchWatchlist(), fetchSeenEvents()])
+      setArtists(watchlist)
+      setFoundEvents(events)
+      setLoading(false)
+    }
+    load()
+  }, [])
+
+>>>>>>> 4ff613d086833c23174acc3de9d09da7621555ec
   return (
     <div className="app">
       <div className="app-header">
         <h1>Concert Alerts</h1>
+<<<<<<< HEAD
         <p className="subtitle">signed in as {user.email}</p>
       </div>
       <button className="signout-btn" onClick={logOut}>
@@ -83,6 +107,23 @@ export default function App() {
           <AlertFeed events={foundEvents} />
         </>
       )}
+=======
+        <p className="subtitle">never miss an announcement again</p>
+      </div>
+      <p className="data-note">
+        edit <code>data/watchlist.json</code> to add or remove artists
+      </p>
+
+      <div className="section-label">Watching ({artists.length})</div>
+      {loading ? (
+        <div className="empty-state">Loading…</div>
+      ) : (
+        <Watchlist artists={artists} foundEvents={foundEvents} />
+      )}
+
+      <div className="section-label">Recent finds</div>
+      <AlertFeed events={foundEvents} />
+>>>>>>> 4ff613d086833c23174acc3de9d09da7621555ec
     </div>
   )
 }
