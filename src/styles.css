@@ -1,0 +1,157 @@
+:root {
+  --stage: #14171f;
+  --stage-soft: #1c2029;
+  --marquee: #e8b04b;
+  --alert: #e4573d;
+  --paper: #fceed8;
+  --ink: #201d1a;
+  --muted: #8b8f9c;
+  --line: rgba(232, 176, 75, 0.18);
+
+  --display: 'Bebas Neue', sans-serif;
+  --body: 'Inter', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: var(--stage);
+  color: var(--paper);
+  font-family: var(--body);
+}
+
+body {
+  background-image: radial-gradient(circle at 50% 0%, rgba(232,176,75,0.06), transparent 60%);
+}
+
+.app {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.app-header h1 {
+  font-family: var(--display);
+  font-size: 3rem;
+  letter-spacing: 0.03em;
+  margin: 0;
+  color: var(--marquee);
+  text-shadow: 0 0 18px rgba(232,176,75,0.35);
+}
+
+.app-header .subtitle {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.data-note {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.data-note code {
+  color: var(--marquee);
+}
+
+/* Section */
+.section-label {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+/* Ticket stub cards */
+.stub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 44px;
+}
+
+.stub {
+  display: flex;
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+}
+
+.stub-main {
+  flex: 1;
+  padding: 16px 18px;
+}
+
+.stub-artist {
+  font-family: var(--display);
+  font-size: 1.4rem;
+  letter-spacing: 0.02em;
+  margin: 0 0 4px;
+}
+
+.stub-status {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: rgba(32,29,26,0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.stub-status.found { color: var(--alert); font-weight: 600; }
+
+.stub-tear {
+  width: 0;
+  border-left: 2px dashed rgba(32,29,26,0.3);
+}
+
+/* Alert feed */
+.alert-item {
+  background: var(--stage-soft);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--alert);
+  border-radius: 6px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+}
+
+.alert-item .headline {
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 0 0 4px;
+}
+
+.alert-item a { color: var(--marquee); }
+
+.alert-item .meta {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.empty-state {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+  padding: 32px;
+  text-align: center;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+}
