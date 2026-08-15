@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Environment variables (contains your Firebase config)
+.env
+.env.local
+
+# Build output
+dist/
+
+# Downloaded Firebase service account keys — never commit these
+*firebase-adminsdk*.json
+serviceAccountKey.json
+encoded.txt
+
+# Editor/OS junk
+.DS_Store
+.vscode/
+*.log

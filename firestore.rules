@@ -1,0 +1,19 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /users/{userId} {
+      // Users can read and update only their own settings/watchlist doc.
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+
+      match /seen_events/{eventId} {
+        // Users can read their own found events...
+        allow read: if request.auth != null && request.auth.uid == userId;
+        // ...but only the GitHub Action's Admin SDK (which bypasses these
+        // rules entirely) is allowed to write them. Client writes blocked.
+        allow write: if false;
+      }
+    }
+  }
+}
